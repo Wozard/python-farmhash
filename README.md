@@ -1,10 +1,18 @@
 python-farmhash
 ==========
 
+Fork Notes
+========
+This fork changes the hash32 binding to accept bytes objects.
+
+It was changed destructively, so hash32 no longer accepts strings. This works for my use case,
+and I don't know how to write a binding that accepts both strings and bytes, so this fork will stay this way.
+
+Feel free to steal the idea, add proper bytes support, and submit a PR to veelion/python-farmhash.
 
 Overview
 ========
-This package provides bindings for the [Google's FarmHash](http://code.google.com/p/farmhash/).  
+This package provides bindings for the [Google's FarmHash](http://code.google.com/p/farmhash/).
 
 Code specific to this project is covered by [The MIT License](http://opensource.org/licenses/MIT)
 
@@ -17,16 +25,16 @@ Install
 Currently, clone the repo and:
 
 pip(Linux & Windows):
-> $ sudo pip install pyfarmhash  
+> $ sudo pip install pyfarmhash
 
 From Source:
-> $ cd python-farmhash  
-> $ sudo python setup.py Install 
+> $ cd python-farmhash
+> $ sudo python setup.py Install
 
 You need `g++` installed.
 
-Windows: 
-(Sheer hackery.  I'm sure there's a way to do this with the new VS but this is working and 
+Windows:
+(Sheer hackery.  I'm sure there's a way to do this with the new VS but this is working and
 I don't have hours to work on it.  Feel free to submit a pull request)
 
 > Install Microsoft Visual C++ Compiler for Python 2.7
@@ -41,20 +49,20 @@ Usage
 =====
 The library is pretty simple to use:
 
-> import farmhash  
-> print farmhash.hash64('abc')  
-> 2640714258260161385  
+> import farmhash
+> print farmhash.hash64('abc')
+> 2640714258260161385
 
 For more details, use ipython:
-> In [1]: import farmhash 
-> 
-> In [2]: farmhash.hash64withseed?  
-> Type:       builtin_function_or_method  
-> String Form:<built-in function hash64withseed>  
-> Docstring:  
-> Hash function for a string.  For convenience, a 64-bit seed is also hashed into the result.  
-> example: print farmhash.hash64withseed('abc', 12345)  
-> 13914286602242141520L  
+> In [1]: import farmhash
+>
+> In [2]: farmhash.hash64withseed?
+> Type:       builtin_function_or_method
+> String Form:<built-in function hash64withseed>
+> Docstring:
+> Hash function for a string.  For convenience, a 64-bit seed is also hashed into the result.
+> example: print farmhash.hash64withseed('abc', 12345)
+> 13914286602242141520L
 
 
 
